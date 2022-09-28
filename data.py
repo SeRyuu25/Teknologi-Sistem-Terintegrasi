@@ -7,13 +7,11 @@ app = FastAPI()
 @app.get("/")
 async def root():
 	return{"Page":"Root"}
-@app.get('data/{item_id}')
+@app.get('/data/{item_id}')
 async def read_data():
-	i = 0
 	dictMahasiswa = []
 	for dataMahasiswa in data['data']:
-		dictMahasiswa[i] = dataMahasiswa
-		i += 1
+		dictMahasiswa.append(dataMahasiswa)
 	return dictMahasiswa
 
 	raise HTTPException(
